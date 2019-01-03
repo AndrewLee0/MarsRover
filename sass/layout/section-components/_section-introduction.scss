@@ -1,0 +1,115 @@
+.introduction
+{
+    @include no-select-with-styling();
+
+    img
+    {
+	@include no-select-with-styling();
+    }
+
+    &-container
+    {
+        @include desktop
+        {
+	    min-height: $introduction-height;
+            padding-top: $introduction-padding-top;
+            padding-bottom: $introduction-padding-bottom;
+        }
+
+        @include mobile
+        {
+            padding-top: $introduction-padding-mobile-top;
+            padding-bottom: $introduction-padding-mobile-bottom;
+        }
+    }
+
+    h1{
+        font-family: $introduction-header-font;
+        @extend %is-important;
+	@include no-select-with-styling();
+
+        @include mobile
+        {
+            font-size: $introduction-header-mobile-size;
+        }
+    }
+
+    h3{
+	font-family: $introduction-subheader-font;
+	@include no-select-with-styling();
+
+        @include desktop
+        {
+            font-size: $introduction-subheader-small-size;
+        }
+
+        @include mobile
+        {
+            font-size: $introduction-subheader-small-mobile-size;
+        }
+    }
+
+    h2{
+        font-family: $introduction-subheader-font;
+	@include no-select-with-styling();
+
+        @include desktop
+        {
+	    @include generateScalingText(3rem, 3.5rem, 4rem, 4.5rem, 5.5rem, 6.5rem, .5);
+        }
+
+        @include mobile
+        {
+            font-size: $introduction-subheader-medium-mobile-size * .80;
+        }
+    }
+
+    color: $section-introduction-text;
+
+    @include generateCoverBackground("../img/asset-introduction.jpg");
+}
+
+@font-face {
+    font-family: Geometos Rounded;
+    src: url('../fonts/Geometos Rounded.ttf');
+}
+
+.introduction-text
+{
+    @include desktop
+    {
+	h1{
+	    @include generateScalingText(3rem, 3.5rem, 4rem, 4.5rem, 5.5rem, 6.5rem, 1);
+	    
+
+	    font-family: Geometos Rounded;
+	}
+
+    position: absolute;
+
+    top: 50%;
+    @include generateY(-50%);
+
+    left: 30%;
+    }
+
+    @include mobile
+    {
+	display: none;
+    }
+
+    &-blue
+    {
+	color: $color-palette-5;
+    }
+}
+
+#introduction-subheader {
+    @media screen and (max-width: 767px) {
+	color: white;
+    }
+
+    @media screen and (min-width: 768px) {
+	color: white;
+    }
+}

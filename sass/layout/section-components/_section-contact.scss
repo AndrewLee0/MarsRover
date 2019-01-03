@@ -1,0 +1,35 @@
+.contact
+{
+    &-container
+    {
+        @include desktop
+        {
+            padding-top: $contact-padding-mobile-top;
+            padding-bottom: $contact-padding-mobile-bottom;
+        }
+
+        @include mobile
+        {
+            padding-top: $contact-padding-top;
+            padding-bottom: $contact-padding-bottom;
+        }
+    }
+
+    h2{
+        @extend %is-important;
+        font-family: $contact-header-font;
+
+        @include desktop
+        {
+            font-size: $contact-subheader-medium-size;
+        }
+
+        @include mobile
+        {
+            font-size: $contact-subheader-medium-mobile-size;
+        }
+    }
+
+    background: $section-contact-background;
+    color: $section-contact-text;
+}

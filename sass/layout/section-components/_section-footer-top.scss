@@ -1,0 +1,51 @@
+.footer-top
+{
+    &-container
+    {
+        @include desktop
+        {
+            padding-top: $top-footer-padding-top;
+            padding-bottom: $top-footer-padding-bottom;
+        }
+
+        @include mobile
+        {
+            padding-top: $top-footer-padding-mobile-top;
+            padding-bottom: $top-footer-padding-mobile-bottom;
+        }
+    }
+
+    h3{
+    @extend %is-important;
+	font-family: $footer-top-header-font;
+
+    @include mobile
+        {
+            font-size: $footer-subheader-small-size;
+        }
+
+        @include desktop
+        {
+            font-size: $footer-subheader-small-mobile-size;
+        }
+
+    }
+
+    p{
+        font-family: $footer-top-paragraph-font;
+
+        @include mobile
+        {
+            font-size: $footer-paragraph-mobile-size;
+        }
+
+        @include desktop
+        {
+            font-size: $footer-paragraph-size;
+        }
+    }
+
+    background: $section-footer-top-background;
+    color: $section-footer-top-text;
+
+}

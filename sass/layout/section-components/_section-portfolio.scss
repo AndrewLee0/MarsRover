@@ -1,0 +1,26 @@
+.portfolio
+{
+    &-container
+    {
+        @include desktop
+        {
+            padding-top: $portfolio-padding-top;
+            padding-bottom: $portfolio-padding-bottom;
+        }
+
+        @include mobile
+        {
+            padding-top: $portfolio-padding-mobile-top;
+            padding-bottom: $portfolio-padding-mobile-bottom;
+        }
+    }
+
+    h2{
+        @extend %is-important;
+        font-family: $portfolio-header-font;
+        font-size: $portfolio-subheader-medium-size;
+    }
+
+    background: $section-portfolio-background;
+    color: $section-portfolio-text;
+}

@@ -1,0 +1,34 @@
+.btn-learn-more {
+    margin-top: 50px !important;
+    transition-duration: 0.2s !important;
+    border: $btn-send-border;
+    color: $btn-send-text;
+    background: $btn-send-background;
+
+    @media screen and (min-width: 768px)
+    {
+	line-height: $btn-send-height;
+	width: $btn-send-width;
+    }
+
+    @media screen and (max-width: 767px)
+    {
+	line-height: $btn-send-height * .75;
+	width: $btn-send-width * .75;
+    }
+
+    font-family: $button-general-font;
+    font-size: $btn-send-text-size;
+    z-index: 99;
+    animation-fill-mode: forwards;
+
+    &:hover
+    {
+	-webkit-transition: all 0.3s ease;
+	@include scale(1.2);
+	transition-duration: 0.2s !important;
+        background: $color-palette-5;
+	color: white;
+	border: $btn-send-border-hover-good;
+    }
+}

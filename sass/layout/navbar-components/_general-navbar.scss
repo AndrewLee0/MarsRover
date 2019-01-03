@@ -1,0 +1,32 @@
+.bb-navbar
+{
+    @include transition-time(0.5s);
+    list-style-type: none;
+    border-radius: 0px;
+    height: 80px;
+
+    &-nav, &-brand{
+        font-family: $navbar-font;
+        font-weight: 700;
+    }
+
+    &-nav{
+        margin-top: 15px;
+        font-size: 15px;
+        text-transform: uppercase;
+        @include transition-time(0.2s);
+    }
+
+    &-brand{
+        text-transform: uppercase;
+        margin-top: 3px;
+        font-size: 2em;
+        @include transition-time(0.2s);
+    }
+}
+
+.button-on
+{
+    border-bottom: 1px $navbar-toggled-border-introduction solid;
+}
+

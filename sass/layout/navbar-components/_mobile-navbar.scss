@@ -1,0 +1,145 @@
+.navbar-two{
+    background: $color-palette-3;
+}
+
+.bb-navbar-enabled
+{
+    @include transition-time(0.5s);
+    display: block !important;
+    height: 170px !important;
+
+    .mobile-nav-list
+    {
+	position: absolute;
+	list-style-type: none;
+	left: 0px;
+	padding-left: 0px;
+	height: 170px !important;
+    }
+}
+
+.bb-navbar-disabled
+{
+    @include transition-time(0.5s);
+    display: block !important;
+    height: 0px !important;
+    background: transparent;
+
+    .mobile-nav-list
+    {
+	@include transition-time(0.5s);
+	margin-top: -20px !important;
+	padding-left: 0px;
+	height: 0px !important;
+    }
+}
+.bb-navbar-toggle
+{
+    z-index: -9999;
+    position: absolute;
+    height: 170px;
+    display: none;
+    position: fixed;
+    top: 49px;
+
+    &-inactive{
+	@include transition-time(0.5s);
+	position: fixed;
+	display: none;
+	height: 0px;
+
+	.nav-item
+	{
+	    display: none;
+	}
+
+	top: 0px;
+	z-index: -9999;
+    }
+
+    &-active{
+	@include transition-time(0.5s);
+
+	//Refactor sizes.
+	height: 170px;
+
+	//Create a punnet-square mixin for these.
+	position: fixed;
+	display: block;
+    }
+
+}
+.element-is-loading
+{
+    @include transition-time(2.5s);
+    background: transparent !important;
+    color: transparent !important;
+}
+.bb-navbar
+{
+    @media screen and (max-width: 767px)
+    {
+        height: 50px;
+    }
+
+    &-nav-mobile{
+
+	color: $color-palette-2;
+
+	&:hover{
+	    color: $color-palette-6;
+	}
+
+	&:focus, &:active{
+	    color: $color-palette-2;
+	}
+
+        font-family: $navbar-font;
+        font-weight: 700;
+	font-size: 15px;
+	text-transform: uppercase;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-left: 30px !important;
+    }
+
+    &-nav{
+
+        @media screen and (max-width: 767px)
+        {
+            display: none !important;
+        }
+
+        &-mobile
+        {
+            font-size: 15px;
+            text-transform: uppercase;
+            margin-top: 8px;
+            margin-bottom: 8px;
+	    width: 100vw;
+        }
+    }
+    &-brand{
+
+        @media screen and (max-width: 767px)
+        {
+            margin-top: 0px;
+            font-size: 19px;
+        }
+    }
+
+    
+}
+
+.nav-link.bb-navbar-nav-mobile
+{
+    @media screen and (max-width: 768px)
+    {
+    margin-top: 0px;
+    padding-top: 8px;
+    margin-bottom: 0px;
+    padding-bottom: 8px;
+    }
+}

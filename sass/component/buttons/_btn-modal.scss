@@ -1,0 +1,43 @@
+.btn-modal
+{
+    z-index: 1000;
+    &:hover{
+    }
+
+    &-success
+    {
+	@include transition-time(0.2s);
+	border: $btn-modal-border;
+	color: $btn-modal-text;
+	background: $btn-modal-background-good;
+	line-height: $btn-modal-height;
+	width: $btn-modal-width;
+	font-family: $button-general-font;
+	font-size: $btn-modal-text-size;
+
+	&:hover
+	{
+	    @include scale(1.2);
+	    background: $btn-modal-hover-background-good;
+	    border: $btn-modal-hover-background-good;
+	}
+    }
+
+    &-failure
+    {
+	@include transition-time(0.2s);
+	border: $btn-modal-border;
+	color: $btn-modal-text;
+	background: $btn-modal-background-bad;
+	line-height: $btn-modal-height;
+	width: $btn-modal-width;
+	font-family: $button-general-font;
+
+	&:hover
+	{
+	    @include scale(1.2);
+	    background: $btn-modal-hover-background-bad;
+	    border: $btn-modal-hover-background-bad;
+	}
+    }
+}

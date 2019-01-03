@@ -1,0 +1,23 @@
+.footer-bottom
+{
+    @include desktop
+    {
+        padding-top: $bottom-footer-padding-top;
+        padding-bottom: $bottom-footer-padding-bottom;
+    }
+
+    @include mobile
+    {
+        padding-top: $bottom-footer-padding-mobile-top;
+        padding-bottom: $bottom-footer-padding-mobile-bottom;
+    }
+
+    p{
+        font-family: $footer-bottom-paragraph-font;
+        font-size: $footer-bottom-paragraph-size;
+    }
+
+    background: $section-footer-bottom-background;
+    color: $section-footer-bottom-text;
+
+}

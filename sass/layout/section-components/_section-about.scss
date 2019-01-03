@@ -1,0 +1,49 @@
+.about
+{
+    &-container
+    {
+        @include desktop
+        {
+            padding-top: $about-padding-top;
+            padding-bottom: $about-padding-bottom;
+        }
+
+        @include mobile
+        {
+            padding-top: $about-padding-mobile-top;
+            padding-bottom: $about-padding-mobile-bottom;
+        }
+    }
+
+    h2{
+        font-family: $about-header-font;
+        @extend %is-important;
+
+        @include desktop
+        {
+            font-size: $about-subheader-medium-size;
+        }
+
+        @include mobile
+        {
+            font-size: $about-subheader-medium-mobile-size;
+        }
+    }
+
+    p{
+        font-family: $about-paragraph-font;
+
+        @include desktop
+        {
+            font-size: $about-paragraph-size;
+        }
+
+        @include mobile
+        {
+            font-size: $about-paragraph-mobile-size;
+        }
+    }
+
+    background: $section-about-background;
+    color: $section-about-text;
+}

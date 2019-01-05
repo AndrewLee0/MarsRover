@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Web and application production company based out of Northville, Michigan">
-    <meta name="author" content="Austin Fell and Andrew Lee">
+    <meta name="description" content="Mars Rover">
+    <meta name="author" content="Andrew Lee">
 
-    <title>Blue Bike Design</title>
+    <title>Mars Rover</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -42,17 +42,15 @@
 <body ng-app="BlueBikeLandingPage" data-spy="scroll" data-offset="100" data-target=".navbar">
   <div data-spy="scroll" data-offset="100" data-target=".navbar-two">
   <div ng-controller="navbarController">
-  <nav class="navbar navbar-fixed-top bb-navbar introduction-viewing element-is-loading viewing-home" id="navbar-generic">
+  <nav style="height: 10px;"class="navbar navbar-fixed-top bb-navbar introduction-viewing element-is-loading viewing-home" id="navbar-generic">
     <div class="container">
-	<li class="nav-item pull-xs-left p-x-1-desktop">
-	    <a id="nav-1" style="color:red !important" class="alert-danger slow-scroll navbar-brand bb-navbar-brand nav-link navbar-nav " href="#introduction">Mars Rover Challenge</a>
+	<li style="text-align:center" class="m-t-4 nav-item p-x-1-desktop">
+	    <a id="nav-1" style="text-align:center; color:white !important" class="slow-scroll bb-navbar-brand nav-link navbar-nav " href="#introduction">Mars Rover Challenge</a>
 	</li>
-	
     </div>
-  
   </div>
-  <section class="introduction" id="introduction">
-    <div class="container introduction-container">
+  <section style="background: url(img/mars3.jpg);" class="introduction" id="introduction">
+    <div style="padding-bottom: 180px; class="container introduction-container">
       <div class="row center-vertically">
 	<div class="col-md-12 text-xs-center">
 	  <div class="col-md-4">
@@ -62,7 +60,7 @@
 	  <div class="col-md-8 introduction-text">
 	    <h1 class="animated bounceInRight"><span class="introduction-text-blue"></span></h1>
 	  </div>
-	   <h1 class="introduction-text-blue text-phone m-y-1-phone">Mars</h1>
+	   <h1 class="introduction-text-blue text-phone m-y-1-phone"> </h1>
 	</div>
 	<div class="col-xs-12">
 	    <div class="row text-xs-center">
@@ -70,132 +68,132 @@
 	    </div>
 	</div>
 	<div class="row">
-	    <div class="col-xs-12 text-xs-center">
-	      <a href="#about" class="slow-scroll animated bounceInUp btn btn-learn-more m-t-1">Learn More</a>
+	     <div style="margin-top: 80px" class="form-group col-md-6 m-t-5 col-md-offset-3">
+	       <input type="text" class="form-control m-t-2" placeholder="Rover Coordinates (0,0,N)" id="coordinates"></input>
+	       <input type="text" class="form-control m-t-2" placeholder="Rover Instructions" id="instructions"></input>
+	       Rover is roving a 3x3 grid
+	       Rover The rover receives a character array of commands.
+	       • Implement commands that move the rover forward/backward (f,b).
+	       • Implement commands that turn the rover left/right (l,r).
+	       • Implement wrapping from one edge of the grid to another. (planets are spheres after all)
+	       • Implement obstacle detection before each move to a new square. If a given sequence of commands encounters an obstacle, the rover moves up to the last possible point and reports the obstacle.
+	    <div class="col-xs-12 m-t-2 text-xs-center">
+	      <button class="btn btn-send btn-send-failure">Deploy Rover</button>
 	    </div>
 	</div>
 	 </div>
       </div>
     </div>
   </section>
-  <div class="lightboxApp"  ng-init="initializeLightbox()" ng-controller="lightboxController">
-  <button ng-click="toggleLightbox('close')" ng-show="lightboxActive" type="button" class="ng-hide btn-lightbox-close btn-lightbox-close-hidden">&times;</button> 
-  <div ng-show="lightboxActive"  class="ng-hide lightbox-top-wrapper lightbox-portfolio-top-wrapper lightbox-top-wrapper-hidden">
+  <!-- Receive text input from user -->
+  "1234567890".match(/.{1,1}/g);
+  Purely in letter form,
+  function that converts letters to a new direction 
+  <!-- -->
+  <script>
+  var roverCoordinates = [3,3,"E"]
+  var roverDirection = roverCoordinates[2]
+  var roverX = roverCoordinates[0];
+  var roverY = roverCoordinates[1];
+  var outOfBounds = 0;
+  function checkForMap(roverX,roverY){
+  	//check to see if end of map is discovered, if it is, throw an error
+  if(roverX>3) {
+  	roverX-=1
+  	alert("Alert: Rover out of bounds" + ". Rover Coordinates," + roverX + "," + roverY + roverDirection);
+  	outOfBounds=1;
+  }
+  else if(roverX<1) {
+  	roverX+=1
+  	alert("Alert: Rover out of bounds" + ". Rover Coordinates," + roverX + "," + roverY + roverDirection);
+  	outOfBounds=1;
+  }
+  else if(roverY>3) {
+  	roverY-=1
+  	alert("Alert: Rover out of bounds" + ". Rover Coordinates," + roverX + "," + roverY + roverDirection);
+  	outOfBounds=1;
+  }
+  else if(roverY<1) {
+  	roverY+=1
+  	alert("Alert: Rover out of bounds" + ". Rover Coordinates," + roverX + "," + roverY + roverDirection);
+  	outOfBounds=1;
+  }
+  }
+  function setCoordinates(x, y, direction) {
+  }
+  var myStringArray = ["R","L","L","R","R","R"];
+  var arrayLength = myStringArray.length;
+  while(outOfBounds==0) {
+  for (var i = 0; i < arrayLength; i++) {
+  	if (myStringArray[i]=="L" && roverDirection=="N") {
+  		checkForMap(roverX,roverY);
+  			roverX -= 1;
+  	}
+  	else if (myStringArray[i]=="R" && roverDirection=="E") {
+  		checkForMap(roverX,roverY);
+  		roverY -= 1;
+  	}
+  	else if (myStringArray[i]=="F" && roverDirection=="S") {
+  		checkForMap(roverX,roverY);
+  		roverX -= 1;
+  	}
+  	else if (myStringArray[i]=="B" && roverDirection=="W") {
+  		checkForMap(roverX,roverY);
+  		roverX += 1;
+  	}
+  	else if (myStringArray[i]=="R" && roverDirection=="N") {
+  		checkForMap(roverX,roverY);
+  		roverX += 1;
+  	}
+  	else if (myStringArray[i]=="L" && roverDirection=="E") {
+  		checkForMap(roverX,roverY);
+  		roverY += 1;
+  	}
+  	else if (myStringArray[i]=="B" && roverDirection=="S") {
+  		checkForMap(roverX,roverY);
+  		roverY += 1;
+  	}
+  	else if (myStringArray[i]=="F" && roverDirection=="W") {
+  		checkForMap(roverX,roverY);
+  		roverX -= 1;
+  	}
+  	else if (myStringArray[i]=="F" && roverDirection=="N") {
+  		checkForMap(roverX,roverY);
+  		roverY += 1;
+  	}
+  	else if (myStringArray[i]=="F" && roverDirection=="E") {
+  		checkForMap(roverX,roverY);
+  		roverX += 1;
+  	}
+  	else if (myStringArray[i]=="L" && roverDirection=="S") {
+  		checkForMap(roverX,roverY);
+  		roverX -= 1;
+  	}
+  	else if (myStringArray[i]=="L" && roverDirection=="W") {
+  		checkForMap(roverX,roverY);
+  		roverY -= 1;
+  	}
+  	else if (myStringArray[i]=="B" && roverDirection=="N") {
+  		checkForMap(roverX,roverY);
+  		roverY -= 1;
+  	}
+  	else if (myStringArray[i]=="B" && roverDirection=="E") {
+  		checkForMap(roverX,roverY);
+  		roverX -= 1;
+  	}
+  	else if (myStringArray[i]=="R" && roverDirection=="S") {
+  		checkForMap(roverX,roverY);
+  		roverX -= 1;
+  	}
+  	else if (myStringArray[i]=="R" && roverDirection=="W") {
+  		checkForMap(roverX,roverY);
+  		roverY += 1;
+  	}
+  }
+}
+  //alert("New Rover Coordinates," + roverX + "," + roverY + roverDirection)
+  </script>
   </div>
-  <div ng-click="toggleLightbox('close')" ng-show="lightboxActive"  class="ng-hide lightbox-wrapper lightbox-portfolio-wrapper lightbox-wrapper-hidden">
-    <div class="container" ng-click="toggleLightbox('close')" >
-      <div class="row">
-	<div class="col-xs-12 text-xs-center lightbox-portfolio-header">
-	  <h1 ng-click="$event.stopPropagation()">{{nameBuffer}}</h1>
-	  <h5><a ng-click="$event.stopPropagation()" href={{url}}>{{url}}</a></h5>
-	  <img class="loader-image m-t-3 m-b-3 p-t-3 p-b-3" src="img/loading.gif"></img>
-	  <div class="col-xs-12 p-x-0 m-x-0 text-xs-center">
-	  <img class="lightbox-image m-t-3" ng-click="$event.stopPropagation()" class="img-fluid center-block" src={{imageBuffer}}></img>
-	  </div>
-	</div>
-      </div>
-      <div class="container">
-      <div class="row">
-       <div class="col-md-12 text-xs-center">
-	<div id="medium-phone" class="col-xs-4 col-lg-offset-4 md-t-3 col-lg-2 m-t-3">
-	  <div ng-click="setMediaBuffer(0); $event.stopPropagation()" class="portfolio-overlay portfolio-circular portfolio-caption">
-	    <div class="portfolio-caption-content">
-	    </div>
-		<img class="img-fluid " src="img/number1.png"></img>
-	  </div>
-	</div>
-	<div id="medium-desktop" class="col-xs-4 col-lg-2 md-t-3 m-t-3 portfolio-caption">
-	  <div ng-click="setMediaBuffer(1); $event.stopPropagation()" class="portfolio-circular portfolio-overlay">
-	    <img class="img-fluid center-block" src="img/number2.png"></img>
-	  </div>
-	</div>
-	<div id="medium-laptop" class="col-xs-4 col-lg-2 md-t-3 m-t-3 portfolio-caption">
-	  <div ng-click="setMediaBuffer(2); $event.stopPropagation()" class="portfolio-overlay portfolio-circular">
-	    <img class="img-fluid center-block" src="img/number3.png"></img>
-	  </div>
-	</div>
-        </div>
-	</div>
-      </div>
-    </div>
-  </div>
-
-  
-
-  </div>
-    <section ng-controller="formValidator" class="contact hide-before-load" id="contact">
-      <div ng-show="badFlag" ng-hide="!badFlag" class="modal-alert element-is-loading" ng-click="resetGUIFlags()">
-	<div class="modal-alert-container modal-submission-bad" ng-click="$event.stopPropagation()">
-	  <div class="row">
-	    <div class="col-md-12">
-	      <h1 class="text-xs-center">Could Not Submit Email</h1>
-	      <h4 class="text-xs-center">The data you entered was not valid.</h4>
-	      <hr class="m-t-2 m-b-3 starlight-failure">
-	    </div>
-	  </div>
-	  <div class="row text-xs-left">
-	      <div class="text-xs-center">
-	        <button ng-click="resetGUIFlags()" class="btn btn-modal-failure m-t-0">Okay</button>
-	      </div>
-	  </div>
-	</div>
-      </div>
-     <div ng-show="goodFlag" ng-hide="!goodFlag" class="modal-alert element-is-loading" ng-click="resetGUIFlags()">
-	<div class="modal-alert-container modal-submission-good" ng-click="$event.stopPropagation()">
-	  <div class="row">
-	    <div class="col-md-12">
-	      <h1 class="text-xs-center">Success</h1>
-	      <h4 class="text-xs-center">Your email has been sent to Blue Bike Design.</h4>
-	      <hr class="m-t-3 m-b-3 starlight-success">
-	    </div>
-	  </div>
-	  <div class="row text-xs-center">
-	     <div class="text-xs-center">
-	        <button ng-click="resetGUIFlags()" class="btn btn-modal-success m-t-0">Okay</button>
-	     </div>
-	  </div>
-	</div>
-      </div>
-    <div class="container contact-container">
-      <div style="margin-bottom: 45px;" class="row">
-	<div class="section-header col-md-12 text-xs-center">
-	    <h2 class="m-b-2">Contact Us</h2>
-	    <hr class="starlight-contact m-y-1">
-	</div>
-	<div class="section-subheader col-md-12 text-xs-center">
-	    <h3>Send us an email and we'll get back to you as soon as possible!</h3>
-	</div>
-      </div>
-
-    <script src="js/utilities/hide-it.js"></script> 
-
-	    <div class="row m-t-1">
-	     <div class="form-group col-md-6 col-md-offset-3">
-	       <input ng-focus="focusForm(1)" ng-blur="defocusForm()" ng-focus="checkName()" ng-change="checkName()" ng-model="name" type="text" class="form-control m-t-2" placeholder="Name" id="name"></input>
-	       <input ng-focus="focusForm(4)"ng-blur="defocusForm()" ng-focus="checkEmail()" ng-change="checkEmail()" ng-model="email" type="text" class="form-control m-t-2" placeholder="Email Address" id="email"></input>
-	       <input ng-focus="focusForm(3)" ng-blur="defocusForm()" ng-focus="checkPhone()" ng-change="checkPhone()" ng-model="phone" type="text" class="form-control m-t-2" placeholder="Phone Number" id="phone"></input>
-	       <textarea ng-focus="focusForm(2)" ng-blur="defocusForm()" ng-focus="checkMessage()" ng-change="checkMessage()" ng-model="message" rows="3" ng-model="name" type="text" class="form-control m-t-2" placeholder="Message" id="input"></textarea>
-	     </div>
-	   </div>     
-	   <div class="row m-t-2">
-	     <div class="text-xs-center">
-		<button ng-mouseenter="stylizeButton()" ng-click="refreshGUIFlags()" class="btn btn-send btn-send-failure">Send</button>
-	     </div>
-	   </div>
-      </div>
-    </div>
-  </section>
-  <section class="footer-top" id="footer-top">
-
-   
-  </section>
-  <section class="footer-bottom" id="footer-bottom">
-    <div class="container footer-bottom-container">
-        <div class="col-md-12 m-t-1 text-xs-center">
-            <p>&#169; Andrew Lee 2019</p>
-        </div>
-    </div>
-  </section>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.0-rc.2/jquery-ui.min.js" integrity="sha256-55Jz3pBCF8z9jBO1qQ7cIf0L+neuPTD1u7Ytzrp2dqo=" crossorigin="anonymous"></script>
@@ -203,6 +201,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.0/jquery.waypoints.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.0/shortcuts/inview.min.js"></script>
   <script src="js/utilities/app.js"></script> 
+  <script src="js/utilities/marsRover.js"></script> 
   <script src="js/utilities/easy-scroll.js"></script> 
   <script src="js/controllers/lightbox.js"></script> 
   <script src="js/controllers/navbar.js"></script> 

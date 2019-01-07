@@ -76,7 +76,7 @@
 	• Input the instructions to the rover on the second form.<br>
     </div>
 	<div id="alert" style="color: white"></div>
-	<input style="font-weight:700" type="button" onclick="wawa()" class="btn btn-send" value="Deploy Rover"/>
+	<input style="font-weight:700" type="button" onclick="determineNewCoordinates()" class="btn btn-send" value="Deploy Rover"/>
 	</div>
   </form>
   <div class="col-md-5"><img  src="img/3x3.png" id="img" class="img-fluid" style="width:400px;height:400px; margin-top:100px;  "alt="Responsive image"></div>
@@ -85,61 +85,63 @@
     </div>
   </section>
 </div>
-  <script>
-  // Receive text input from user -->
-  function changeImage(a) {
-        document.getElementById("img").src=a;
-    }
-    var outOfBounds = 0;
-  
-  function wawa() {
-  //current coordinates
-  var variable1 = document.getElementById('coordinates').value;
-  var formatted1 = String(variable1).match(/.{1,1}/g);
-  var rcoordinates = String(formatted1).split(",");
-  var roverCoordinates = rcoordinates
-  var roverDirection = roverCoordinates[2]
-  var roverX = parseInt(roverCoordinates[0],10);
-  var roverY = parseInt(roverCoordinates[1],10);
-  changeImage("img/" +roverX+"x"+roverY+".png");
-  //
-  var variable = document.getElementById('instructions').value;
-  var formatted = String(variable).match(/.{1,1}/g);
-  var myStringArray = String(formatted).split(",");
-  //document.getElementById('alert').innerHTML = 'The new coordinates of the rover are: ' + roverX + " " + roverY + roverDirection;
-  var arrayLength = myStringArray.length;
-  function checkForMap(roverX,roverY){
-  	//check to see if end of map is discovered, if it is, throw an error
-  if(roverX>3) {
-  	roverX-=1
+
+<script>
+// Receive text input from user -->
+function changeImage(a) {
+	document.getElementById("img").src=a;
+}
+var outOfBounds = 0;
+//var roverX;
+//var roverY;
+//var roverDirection;
+function determineNewCoordinates() {
+//current coordinates
+var originalCoordinates = document.getElementById('coordinates').value;
+var formattedCoordinates = String(originalCoordinates).match(/.{1,1}/g);
+var splitCoordinates = String(formattedCoordinates).split(",");
+var roverCoordinates = splitCoordinates;
+var roverDirection = roverCoordinates[2];
+var roverX = parseInt(roverCoordinates[0],10);
+var roverY = parseInt(roverCoordinates[1],10);
+changeImage("img/" +roverX+"x"+roverY+".png");
+var instructions = document.getElementById('instructions').value;
+var formattedInstructions = String(instructions).match(/.{1,1}/g);
+var instructionsArray = String(formattedInstructions).split(",");
+//document.getElementById('alert').innerHTML = 'The new coordinates of the rover are: ' + roverX + " " + roverY + roverDirection;
+var arrayLength = instructionsArray.length;
+function checkForMap(roverX,roverY){
+	//check to see if end of map is discovered, if it is, throw an error
+	if(roverX>3) {
+  	roverX-=1;
   	changeImage("img/" +roverX+"x"+roverY+".png");
   	outOfBounds+=1;
-  	document.getElementById('alert').innerHTML = 'The new coordinates of the rover are: ' + roverX + " " + roverY + " "+roverDirection;
-  }
-  else if(roverX<1) {
-  	roverX+=1
-  	changeImage("img/" +roverX+"x"+roverY+".png");
-  	outOfBounds+=1;
-  	document.getElementById('alert').innerHTML = 'The new coordinates of the rover are: ' + roverX + " " + roverY + " "+roverDirection;
-  }
-  else if(roverY>3) {
-  	roverY-=1
-  	outOfBounds+=1;
-  	changeImage("img/" +roverX+"x"+roverY+".png");
-  	document.getElementById('alert').innerHTML = 'The new coordinates of the rover are: ' + roverX + " " + roverY + " "+roverDirection;
-  }
-  else if(roverY<1) {
-  	roverY+=1
-  	changeImage("img/" +roverX+"x"+roverY+".png");
-  	outOfBounds+=1;
-  	document.getElementById('alert').innerHTML = 'The new coordinates of the rover are: ' + roverX + " " + roverY + " "+roverDirection;
-  }
-  else {
-  	outOfBounds=0;
-  }
-  }
-  for (var i = 0; i < arrayLength; i++) {
-  	if (myStringArray[i]=="L" && roverDirection=="N") {
+  	document.getElementById('alert').innerHTML = 'Rover cannot go any farther! The new coordinates of the rover are: ' + roverX + " " + roverY + " "+roverDirection;
+	}
+	else if(roverX<1) {
+	roverX+=1;
+	changeImage("img/" +roverX+"x"+roverY+".png");
+	outOfBounds+=1;
+	document.getElementById('alert').innerHTML = 'Rover cannot go any farther! The new coordinates of the rover are: ' + roverX + " " + roverY + " "+roverDirection;
+	}
+	else if(roverY>3) {
+	roverY-=1;
+	outOfBounds+=1;
+	changeImage("img/" +roverX+"x"+roverY+".png");
+	document.getElementById('alert').innerHTML = 'Rover cannot go any farther! The new coordinates of the rover are: ' + roverX + " " + roverY + " "+roverDirection;
+	}
+	else if(roverY<1) {
+	roverY+=1;
+	changeImage("img/" +roverX+"x"+roverY+".png");
+	outOfBounds+=1;
+	document.getElementById('alert').innerHTML = 'Rover cannot go any farther! The new coordinates of the rover are: ' + roverX + " " + roverY + " "+roverDirection;
+	}
+	else {
+	outOfBounds=0;
+	}
+}
+for (var i = 0; i < arrayLength; i++) {
+  	if (instructionsArray[i]=="L" && roverDirection=="N") {
   		checkForMap(roverX,roverY);
   		if (outOfBounds!=0) {
           break;       // <=== breaks out of the loop early
@@ -147,7 +149,7 @@
   		roverDirection = "W"
   		changeImage("img/" +roverX+"x"+roverY+".png");
   	}
-  	else if (myStringArray[i]=="R" && roverDirection=="E") {
+  	else if (instructionsArray[i]=="R" && roverDirection=="E") {
   		checkForMap(roverX,roverY);
   		if (outOfBounds!=0) {
           break;       // <=== breaks out of the loop early
@@ -156,7 +158,7 @@
   		changeImage("img/" +roverX+"x"+roverY+".png");
   		//alert(roverX + " " + roverY + roverDirection);
   	}
-  	else if (myStringArray[i]=="F" && roverDirection=="S") {
+  	else if (instructionsArray[i]=="F" && roverDirection=="S") {
   		checkForMap(roverX,roverY);
   		if (outOfBounds!=0) {
           break;       // <=== breaks out of the loop early
@@ -165,7 +167,7 @@
   		changeImage("img/" +roverX+"x"+roverY+".png");
   		checkForMap(roverX,roverY);
   	}
-  	else if (myStringArray[i]=="B" && roverDirection=="W") {
+  	else if (instructionsArray[i]=="B" && roverDirection=="W") {
   		checkForMap(roverX,roverY);
   		if (outOfBounds!=0) {
           break;       // <=== breaks out of the loop early
@@ -174,15 +176,15 @@
   		changeImage("img/" +roverX+"x"+roverY+".png");
   		checkForMap(roverX,roverY);
   	}
-  	else if (myStringArray[i]=="R" && roverDirection=="N") {
+  	else if (instructionsArray[i]=="R" && roverDirection=="N") {
   		checkForMap(roverX,roverY);
   		if (outOfBounds!=0) {
-          break;       // <=== breaks out of the loop early
-        }
+	  	  break;       // <=== breaks out of the loop early
+	    }
   		changeImage("img/" +roverX+"x"+roverY+".png");
   		roverDirection = "E"
   	}
-  	else if (myStringArray[i]=="L" && roverDirection=="E") {
+  	else if (instructionsArray[i]=="L" && roverDirection=="E") {
   		checkForMap(roverX,roverY);
   		if (outOfBounds!=0) {
           break;       // <=== breaks out of the loop early
@@ -190,7 +192,7 @@
   		changeImage("img/" +roverX+"x"+roverY+".png");
   		roverDirection = "N"
   	}
-  	else if (myStringArray[i]=="B" && roverDirection=="S") {
+  	else if (instructionsArray[i]=="B" && roverDirection=="S") {
   		checkForMap(roverX,roverY);
   		if (outOfBounds!=0) {
           break;     
@@ -199,7 +201,7 @@
   		changeImage("img/" +roverX+"x"+roverY+".png");
   		checkForMap(roverX,roverY);
   	}
-  	else if (myStringArray[i]=="F" && roverDirection=="W") {
+  	else if (instructionsArray[i]=="F" && roverDirection=="W") {
   		checkForMap(roverX,roverY);
   		if (outOfBounds!=0) {
           break;       // <=== breaks out of the loop early
@@ -209,7 +211,7 @@
   		checkForMap(roverX,roverY);
   		
   	}
-  	else if (myStringArray[i]=="F" && roverDirection=="N") {
+  	else if (instructionsArray[i]=="F" && roverDirection=="N") {
   		checkForMap(roverX,roverY);
         if (outOfBounds!=0) {
           break;       // <=== breaks out of the loop early
@@ -218,8 +220,7 @@
   		changeImage("img/" +roverX+"x"+roverY+".png");
   		checkForMap(roverX,roverY);
   	}
-  	else if (myStringArray[i]=="F" && roverDirection=="E") {
-  		
+  	else if (instructionsArray[i]=="F" && roverDirection=="E") {
   		checkForMap(roverX,roverY);
   		if (outOfBounds!=0) {
           break;       // <=== breaks out of the loop early
@@ -228,7 +229,7 @@
   		changeImage("img/" +roverX+"x"+roverY+".png");
   		checkForMap(roverX,roverY);
   	}
-  	else if (myStringArray[i]=="L" && roverDirection=="S") {
+  	else if (instructionsArray[i]=="L" && roverDirection=="S") {
   		checkForMap(roverX,roverY);
   		if (outOfBounds!=0) {
           break;       // <=== breaks out of the loop early
@@ -236,7 +237,7 @@
   		changeImage("img/" +roverX+"x"+roverY+".png");
   		roverDirection = "E"
   	}
-  	else if (myStringArray[i]=="L" && roverDirection=="W") {
+  	else if (instructionsArray[i]=="L" && roverDirection=="W") {
   		checkForMap(roverX,roverY);
   		if (outOfBounds!=0) {
           break;       // <=== breaks out of the loop early
@@ -244,7 +245,7 @@
         roverDirection = "S"
   		changeImage("img/" +roverX+"x"+roverY+".png");
   	}
-  	else if (myStringArray[i]=="B" && roverDirection=="N") {
+  	else if (instructionsArray[i]=="B" && roverDirection=="N") {
   		checkForMap(roverX,roverY);
   		if (outOfBounds!=0) {
           break;       // <=== breaks out of the loop early
@@ -252,9 +253,8 @@
         roverY -= 1;
   		changeImage("img/" +roverX+"x"+roverY+".png");
   		checkForMap(roverX,roverY);
-  		alert('The new coordinates of the rover are: ' + roverX + " " + roverY + " "+roverDirection)
   	}
-  	else if (myStringArray[i]=="B" && roverDirection=="E") {
+  	else if (instructionsArray[i]=="B" && roverDirection=="E") {
   		checkForMap(roverX,roverY);
   		if (outOfBounds!=0) {
           break;       // <=== breaks out of the loop early
@@ -263,7 +263,7 @@
         changeImage("img/" +roverX+"x"+roverY+".png");
         checkForMap(roverX,roverY);
   	}
-  	else if (myStringArray[i]=="R" && roverDirection=="S") {
+  	else if (instructionsArray[i]=="R" && roverDirection=="S") {
   		checkForMap(roverX,roverY);
   		if (outOfBounds!=0) {
           break;       // <=== breaks out of the loop early
@@ -271,7 +271,7 @@
   		roverDirection = "W"
   		changeImage("img/" +roverX+"x"+roverY+".png");
   	}
-  	else if (myStringArray[i]=="R" && roverDirection=="W") {
+  	else if (instructionsArray[i]=="R" && roverDirection=="W") {
   		checkForMap(roverX,roverY);
   		if (outOfBounds!=0) {
           break;       // <=== breaks out of the loop early
@@ -280,9 +280,10 @@
   		changeImage("img/" +roverX+"x"+roverY+".png");
   	}
   }
-
-document.getElementById('alert').innerHTML = 'The new coordinates of the rover are: ' + roverX + " " + roverY + " "+roverDirection;
-}
+  if (outOfBounds==0) {
+          document.getElementById('alert').innerHTML = 'The new coordinates of the rover are: ' + roverX + " " + roverY + " "+roverDirection;      // <=== breaks out of the loop early
+        }
+}document.getElementById('alert').innerHTML = 'The new coordinates of the rover are: ' + roverX + " " + roverY + " "+roverDirection;
   </script>
   </div>
   </div>
